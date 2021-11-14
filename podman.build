@@ -1,2 +1,2 @@
 
-podman build -t pimcore:PHP8.0-apache-debug-kafka .
+podman build -t php-apache-kafka:PHP7.4 .

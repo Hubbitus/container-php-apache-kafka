@@ -1,4 +1,4 @@
-FROM docker.io/pimcore/pimcore:PHP8.0-apache-debug
+FROM docker.io/pimcore/pimcore:PHP7.4-apache-debug
 
 LABEL org.opencontainers.image.authors="Pahan@Hubbitus.info"
 
