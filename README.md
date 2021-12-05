@@ -3,14 +3,14 @@
 Different versions of PHP see in separate branches.
 The `master` branch will contain teh last version, 8.0 for now.
 
-Container is based on https://hub.docker.com/r/pimcore/pimcore
+Container is based on [pimcore/pimcore](https://hub.docker.com/r/pimcore/pimcore)
 
 ## Automated builds!
 ![container build status](https://quay.io/repository/hubbitus/php-apache-kafka/status)
 
-Containers for this repository builds automatically! Please pull it from the repository: https://quay.io/repository/hubbitus/php-apache-kafka
-For example:
+Containers for this repository builds automatically! Please pull the latest version from the repository: https://quay.io/repository/hubbitus/php-apache-kafka
 
+For example:
 ```shell
 podman run quay.io/hubbitus/php-apache-kafka
 ```
