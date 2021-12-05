@@ -1,0 +1,17 @@
+version: '2.4'
+services:
+  php-debug:
+#    image: localhost/pimcore:PHP8.0-apache-debug-kafka
+    image: quay.io/hubbitus/php-apache-kafka
+    volumes:
+      - .:/var/www/html:cached
+#    ports:
+#     - 8087:80
+    # In network host mode that is simpler configure debugging to call localhost, but require have
+    # 80 port allowed in rootles mode. Manually you may allow it like
+    # sudo sysctl net.ipv4.ip_unprivileged_port_start=70
+    # For persistent allow place similar option in /etc/sysctl.conf file or /etc/sysctl.d/ separate file.
+    network_mode: host
+    environment:
+      - PHP_IDE_CONFIG="ServerName=localhost"
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
