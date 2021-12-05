@@ -16,7 +16,7 @@ podman run quay.io/hubbitus/php-apache-kafka
 ```
 
 ## Compose file example
-See more realistic example in [docker-compose.yml]() file.
+See more realistic example in [docker-compose.yml](docker-compose.yml) file.
 
 You may run it with:
 ```shell
