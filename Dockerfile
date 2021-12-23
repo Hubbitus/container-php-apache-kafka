@@ -14,8 +14,11 @@ ENV BUILD_DEPS \
 	python-minimal \
 	zlib1g-dev
 
+# krb5-user to have ktutil for automatic keytab generation and do not store password in plain-text!
+ENV RUN_DEPS libsasl2-modules-gssapi-mit krb5-user
+
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends ${BUILD_DEPS} \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ${BUILD_DEPS} ${RUN_DEPS} \
 	&& cd /tmp \
 	&& git clone \
 		--branch ${LIBRDKAFKA_VERSION} \
@@ -28,7 +31,6 @@ RUN apt-get update \
 	&& pecl install rdkafka \
 	&& docker-php-ext-enable rdkafka \
 	&& rm -rf /tmp/librdkafka \
-	&& apt-get purge -y -o APT::AutoRemove::RecommendsImportant=false \
-		${BUILD_DEPS}
+	&& apt-get purge -y -o APT::AutoRemove::RecommendsImportant=false ${BUILD_DEPS}
 
-# "apt-get purge -y --auto-remove" with last flag will remove extra libraries like ZIP, imagick and so on... So you will get erros on "php -i"!
+# "apt-get purge -y --auto-remove" with last flag will remove extra libraries like ZIP, imagick and so on... So you will get errors on "php -i"!
