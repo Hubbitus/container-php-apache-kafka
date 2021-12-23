@@ -1,6 +1,6 @@
 # Container with apache httpd and php (7.4, 8.0) with kafka (librdkafka) support
 
-Different versions of PHP see in separate branches.
+Different versions of PHP present in separate branches.
 The `master` branch will contain teh last version, 8.0 for now.
 
 Container is based on [pimcore/pimcore](https://hub.docker.com/r/pimcore/pimcore)
